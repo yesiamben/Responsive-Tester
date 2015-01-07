@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="description" content="Test your site or landing page in a variety of popular sizes at the same time, or define your own custom sizes.">
+
+	<title>Responsive Tester - Test responsive designs</title>
+
+	<link rel="stylesheet" href="css/fontello.css" type="text/css" />
+	<link rel="stylesheet" href="css/styles.css" type="text/css" />
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/main-ck.js"></script>
+
+	<meta property="og:locale" content="en_GB" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Responsive Tester - Test responsive designs" />
+	<meta property="og:description" content="Test your site or landing page in a variety of popular sizes at the same time, or define your own custom sizes." />
+	<link rel="canonical" href="http://www.responsivetester.net/" />
+	<meta property="og:site_name" content="Responsive Tester - Test responsive designs" />
+	<meta property="article:published_time" content="2015-01-07T12:00:00+00:00" />
+	<meta property="article:modified_time" content="2015-01-07T12:00:00+00:00" />
+	<meta property="og:image" content="http://www.responsivetester.net/images/fb.jpg" />
+	
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@yesiamben">
+	<meta name="twitter:creator" content="@yesiamben">
+	<meta name="twitter:title" content="Responsive Tester - Test responsive designs">
+	<meta name="twitter:description" content="Test your site or landing page in a variety of popular sizes at the same time, or define your own custom sizes.">
+	<meta name="twitter:image:src" content="http://www.responsivetester.net/images/fb.jpg">
+	
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-46324547-3', 'auto');
+	  ga('send', 'pageview');
+	
+	</script>
+	
+</head> 
+
+	<body>
+	
+		<div id="container">
+			<nav>
+				
+				<div id="inputBox">
+					<form method="post">
+						<input type="text" id="urlbox" placeholder="URL" />
+					</form>
+					<div id="reloadFrames"></div>
+					<div id="slideInOut"></div>
+				</div>
+				
+				<div id="defContainer">
+					<div id="defaultHolder">
+						<div id="defaultSizes">
+							<ul id="sizesList">
+							</ul>
+						</div>
+						<div id="fadeBox"></div>
+					</div>
+				</div>
+				
+				<div id="bottomLeft">
+					<div id="newSize">
+						<h3>New screen size</h3>
+						<div class="inputBoxes">
+							<input type="number" id="wBox" placeholder="W" />px <b>x</b>
+							<input type="number" id="hBox" placeholder="H" />px <b>(w/h)</b>
+						</div>
+						<div class="inputBoxes inputFull">
+							<input type="text" id="iBox" placeholder="Size name" />
+						</div>
+						<div class="inputBoxes inputSubmit">
+							<input type="submit" id="submitButton" value="Add Size" />
+							<div id="loading"></div>
+							<div id="error">Error!</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+					<div id="options">
+						<h3>Options</h3>
+						<ul>
+							<li class="inputBoxes">
+								<input type="number" id="extraPixels" value="0" /> Extra pixels for scrollbars
+							</li>
+							<li><label><input type="checkbox" id="cropFrames" />Crop frames to screen height</label></li>
+							<li><label><input type="checkbox" id="largestFirst" />Largest first?</label></li>
+							<li><a id="resetDefaults" href="">Reset to defaults</a></li>
+						</ul>
+					</div>
+					<div id="credits">
+						<h1>Responsive Tester</h1>
+						By <a href="http://www.iamben.co.uk">Ben Pritchard</a> / <a id="infoOpen" href="">More info & help</a> / <a href="">Fork</a>
+						<br />Useful: <a href="http://viewportsizes.com/" target="blank" rel="nofollow">Viewport Sizes</a>
+					</div>
+				</div>
+				
+			</nav>
+			
+			<section id="panel">
+				
+			</section>
+		</div>
+		
+		<div id="infoPane">
+			<div id="iPFrame">
+				<div id="iPInfo">
+					<article id="iPScroll">
+					
+						<header>
+							<h1>Responsive Tester</h1>
+						<header>
+						
+						<p>Recently, I was chatting to a client about responsive design and testing. I mentioned something I'd been using 
+							locally for a while and figured they'd find it useful. So here's a little something I use when I'm building websites and landing
+							pages. </p>
+							
+						<p>It's probably not error free. During my initial development I tend to only use Chrome, so it's only been (kind of) tested 
+							there. Somewhat ironically, this site isn't at all responsive. But (obviously) that would be kind of pointless. 
+							It also shouldn't be used as a replacement for actual testing (not that you would). Browsers have a lot of quirks - your '100vh' height
+							intro screen may look fine here - Safari on your iPhone may be another matter...
+						</p>
+						
+						<p>It is great, however, for testing breakpoints and checking that your content (or the content on your client's site) is flowing 
+							properly and nothing looks untoward. It should give you a good idea of how a site will (probably) look on a smaller screened device.
+						</p>
+						
+						<p>Anyway, you might find it useful as well. If that's the case and you have any suggestions, find any issues, or improve on it in any 
+							way - I'd love to know. You can find me on <a href="http://twitter.com/yesiamben" target="_blank">Twitter - @yesiamben</a>. If forking is your poison, feel free to do so 
+							<a href="" target="_blank">here on GitHub</a>. It's MIT licensed, so you're welcome to do as you please, but I'd appreciate a 
+							link if you use it :-)
+							<div class="clear"></div>
+							<a href="https://twitter.com/yesiamben" class="twitter-follow-button" data-show-count="false">Follow @yesiamben</a>
+							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+						</p>
+						
+						
+						<h3>Helpful hints</h3>
+						
+						<ul>
+							<li>All settings are stored using <a href="http://diveintohtml5.info/storage.html" target="_blank" rel="nofollow">localstorage</a>. This 
+								means they should be the same when you return to the site, provided you're not in a private browsing session, or you clear your
+								localstorage. Everything should save as you go, except the URL (but you can load that in the URL).
+							</li>
+							
+							<li>Any page can be loaded by adding the URL as a query string. For example: <br />
+								<a href="http://www.responsivetester.net/?http://www.iamben.co.uk" target="_blank">http://www.responsivetester.net/?http://www.iamben.co.uk</a>
+							</li>
+							<li>I'm not sure if Windows has scrollbars or not anymore, but if your scrollbars are messing with the breakpoints, you can
+								add a few pixels to every box without changing the widths manually (for example, your 320px wide frame could be 340px to account
+								for the 20px wide scrollbar the phone won't have).
+							</li>
+							<li>Setting 'largest first' will reorder the frames largest to smallest. I prefer small to large, but different strokes for different
+								folks :-)
+							</li>
+							<li>By default the frames are set to crop at screen height. This is useful for testing breakpoint widths. I tend to untick this if I'm
+								looking for an idea of the content that will appear <a href="http://en.wikipedia.org/wiki/Above_the_fold" ref="nofollow" target="_blank">
+								above the fold</a> on handheld devices.
+							</li>
+							<li>You can set as many custom sizes as you like, and call them whatever you like. My favourites are the defaults, but go crazy if you
+								wish. Settings are stored in your localstorage and should appear active or not when you return. I've added a link at the bottom to
+								a useful collection of Viewport Sizes. You can probably find your favourite phones and tablets there.
+							</li>
+							<li>At the very top, by the input box, are buttons to reload all the frames, and to slide closed the menu. If you slide it closed, it
+								will stay that way until you open it.
+							</li>
+							<li>You may encounter a couple of problems opening sites (especially those you're not developing). Some sites prevent themselves being
+								opened in an iframe (or display a blank page), others use the UserAgent to detect mobiles or tablets and serve content accordingly. Browsers can also get
+								a bit funny about navigation inside iframes. Just load the page you want in the input box or via the location bar.
+							</li>
+							<li>Finally, you can reset everything by clicking the link in the 'Options' section.</li>
+						</ul>
+						
+
+					</article>
+					<div id="iPClose"></div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	
+</html>

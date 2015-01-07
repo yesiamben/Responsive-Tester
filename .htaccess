@@ -1,0 +1,12 @@
+ErrorDocument 404 /error.html
+ErrorDocument 403 /error.html
+ErrorDocument 400 /error.html
+ErrorDocument 401 /error.html
+ErrorDocument 500 /error.html
+
+Options +FollowSymlinks
+RewriteEngine on 
+
+RewriteCond %{HTTP_HOST} ^responsivetester\.net$ [NC]
+RewriteCond %{HTTP_HOST} !^www\. 
+RewriteRule (.*) http://www.responsivetester.net/$1 [R=301,L]

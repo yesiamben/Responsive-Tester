@@ -1,0 +1,586 @@
+/* RESETS */
+/* ------------------------------------------------------------------------------------------------------------- */
+
+// --- Box Sizing
+.boxSize {
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box; 
+}
+
+// --- Box Shadow
+.box-shadow (@x: 0px, @y: 1px, @blur: 2px, @color: rgba(0,0,0,.5)) {
+	-moz-box-shadow: @arguments;
+	-webkit-box-shadow: @arguments;
+	box-shadow: @arguments;
+}
+.box-shadow-light {
+	.box-shadow(0px, 1px, 5px, rgba(0,0,0,.5));
+}
+.box-shadow-bold {
+	.box-shadow(0px, 0px, 15px, rgba(0,0,0,.9));
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, 
+form, fieldset, input, p, blockquote, table, th, td, embed, object {
+  padding: 0;
+  margin: 0; 
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: inherit;
+  font: inherit;
+  font-size: 100%;
+}
+a, fieldset, img, abbr {
+  border: 0;
+  border: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0); 
+}
+address, caption, cite, code, dfn, em, 
+h1, h2, h3, h4, h5, h6, strong, th, var {
+  font-weight: normal;
+  font-style: normal;
+}
+ul {
+  list-style: none;
+}
+caption, th {
+  text-align: left;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-size:100%;
+}
+q:before, q:after {
+  content: '';
+}
+ins {
+  text-decoration: none;
+}
+
+.clear{
+  clear:both;
+  display:block;
+  overflow:hidden;
+  visibility:hidden;
+  width:0;
+  height:0;
+}
+
+b, strong, em {
+	font-weight: bold;
+}
+
+input {
+  font-size: inherit;
+  font: inherit;
+}
+input:focus, a:focus, select, input, textarea{
+  outline: none;
+}
+
+
+html, body {
+	height: 100%;
+}
+
+body {
+	background-color: #ddd;
+	font-size: 62.5%;
+	font-family: Arial, Helvetica, sans-serif;
+	height: 100%;
+	min-height: 100%;
+	color: #111;
+	/* Background pattern from subtlepatterns.com */
+	background: url(../images/texture.jpg) repeat left top;
+	background-size: 250px 250px;
+}
+
+
+/* LAYOUT */
+/* ------------------------------------------------------------------------------------------------------------- */
+
+.boxBorders {
+	border-bottom: 1px solid #000;
+	border-top: 1px solid #555;
+	background-color: #333;
+}
+
+#container {
+	width: 100%;
+	height: 100%;
+	float: left;
+	position: relative;
+	padding-left: 300px;
+	.boxSize;
+}
+
+nav {
+	top: 0;
+	left: 0;
+	width: 300px;
+	height: 100%;
+	position: fixed;
+	background-color: #333;
+	border-right: 1px solid #000;
+	z-index: 9;
+	.box-shadow-bold;
+	.boxSize;
+}
+	#inputBox {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 77px;
+		padding: 20px;
+		z-index: 10;
+		.boxBorders;
+		.boxSize;
+		
+		border-top: none;
+	}
+		#inputBox input {
+			padding-right: 25px !important;
+		}
+		#inputBox input.isLoading {
+			background: #fff url(../images/loadframes.gif) no-repeat 98% center;
+		}
+		#inputBox input,
+		#newSize input,
+		#options .inputBoxes input {
+			width: 100%;
+			border-radius: 5px;
+			border: 1px solid #111;
+			background-color: #fff;
+			padding: 0 10px;
+			line-height: 34px;
+			height: 36px;
+			font-size: 14px;
+			.box-shadow-light;
+			.boxSize;
+		}
+		
+		#reloadFrames,
+		#slideInOut {
+			font-family: "fontello";
+			width: 24px; 
+			height: 24px;
+			line-height: 24px;
+			text-align: center;
+			color: #999;
+			font-size: 16px;
+			speak: none;
+			position: absolute;
+			background-color: #333;
+			right: -20px;
+			top: 5px;
+			border: 1px solid #111;
+			z-index: 99;
+			border-radius: 3px;
+			cursor: pointer;
+			.box-shadow-light;
+		}
+		#slideInOut {
+			top: auto;
+			bottom: 5px;
+		}
+			#reloadFrames:hover,
+			#slideInOut:hover {
+				color: #fff;
+			}
+			#reloadFrames:after {
+				content: '\e803';
+			}
+			#slideInOut:after {
+				content: '\e801';
+			}
+				#slideInOut.isIn:after {
+					content: '\e800';
+				}
+		
+	
+	#defContainer {
+			position: absolute;
+			padding-top: 77px;
+			padding-bottom: 200px;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			.boxSize;
+	}
+		#defaultHolder {
+			height: 100%;
+			width: 100%;
+			padding: 0;
+			overflow: hidden;
+			position: relative;
+			.boxBorders;
+			.boxSize;			
+		}
+			#defaultHolder #fadeBox {
+				position: absolute;
+				z-index: 20;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 25px;
+				background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(48,48,48,1) 95%, rgba(51,51,51,1) 100%);
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(95%,rgba(48,48,48,1)), color-stop(100%,rgba(51,51,51,1)));
+				background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(48,48,48,1) 95%,rgba(51,51,51,1) 100%);
+				background: -o-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(48,48,48,1) 95%,rgba(51,51,51,1) 100%);
+				background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(48,48,48,1) 95%,rgba(51,51,51,1) 100%);
+				background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(48,48,48,1) 95%,rgba(51,51,51,1) 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#333333',GradientType=0 );
+			}
+
+		#defaultSizes {
+			height: 100%;
+			width: 100%;
+			padding: 0;
+			overflow-y: scroll;
+			position: relative;
+			.boxSize;
+		}
+			#sizesList {
+				width: 100%;
+				float: left;
+				padding-bottom: 30px;
+			}
+				#sizesList li {
+					width: 100%;
+					position: relative;
+				}
+					#sizesList li label {
+						display: block;
+						border-bottom: 1px dotted #111;
+						padding: 10px 20px;
+						font-size: 12px;
+						color: #777;
+						position: relative;
+						cursor: pointer;
+					}
+					#sizesList li label.checked {
+						color: #fff;
+					}
+						#sizesList li label input {
+							margin-right: 10px;
+						}
+						#sizesList li:last-child label {
+							border: none;
+						}
+						
+						#sizesList li .close {
+							font-family: "fontello";
+							display: none;
+							position: absolute;
+							top: 50%;
+							margin-top: -9px;
+							right: 10px;
+							width: 18px;
+							line-height: 18px;
+							text-align: center;
+							height: 18px;
+							font-size: 14px;
+							background-color: #c00;
+							color: #fff;
+							border-radius: 4px;
+							cursor: pointer;
+							.box-shadow-light;
+						}
+							#sizesList li .close:after {
+								content: '\e805';
+							}
+						#sizesList li:hover .close {
+							display: block;
+						}
+	
+	#bottomLeft {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		z-index: 10;
+	}
+
+		#options {
+			width: 100%;
+			float: left;
+			padding: 10px 20px;
+			.boxBorders;
+			.boxSize;
+		}
+			#options ul {
+				width: 100%;
+			}
+				#options ul li {
+					padding: 5px 0;
+					width: 100%;
+					font-size: 11px;
+					color: #ccc;
+				}
+					#options label {
+						cursor: pointer;
+					}
+					#options input[type="checkbox"] {
+						margin-right: 10px;
+					}
+					
+					#options a {
+						color: #999;
+						text-decoration: none;
+						border-bottom: 1px dotted #666;
+					}
+		
+		
+		#credits {
+			padding: 20px;
+			padding-bottom: 20px;
+			width: 100%;
+			float: left;
+			color: #666;
+			font-size: 11px;
+			position: relative;
+			line-height: 140%;
+			.boxBorders;
+			.boxSize;
+			
+			border-bottom: none;
+		}
+			#credits h1 {
+				font-weight: bold;
+				font-size: 12px;
+			}
+			#credits a {
+				color: #999;
+				text-decoration: none;
+				border-bottom: 1px dotted #666;
+			}
+
+	
+		#newSize {
+			padding: 10px 20px;
+			width: 100%;
+			float: left;
+			.boxBorders;
+			.boxSize;
+		}
+		#newSize h3,
+		#options h3 {
+			font-size: 11px;
+			text-transform: uppercase;
+			font-weight: bold;
+			letter-spacing: 1px;
+			margin-bottom: 10px;
+			padding-bottom: 5px;
+			border-bottom: 1px dotted #666;
+			color: #ccc;
+		}
+		.inputBoxes {
+			padding: 5px 0;
+			line-height: 24px;
+			font-size: 11px;
+			color: #ccc;
+		}
+			#newSize .inputBoxes input,
+			#options .inputBoxes input {
+				width: auto;
+				width: 65px;
+				height: 24px;
+				line-height: 24px;
+				margin-right: 5px;
+				font-size: 11px;
+				background-color: #666;
+				border: none;
+			}
+				#newSize .inputFull input {
+					width: 100%;
+				}
+				#newSize .inputBoxes b {
+					display: inline-block;
+					margin: 0 10px;
+					color: #666;
+				}
+				#newSize .inputSubmit {
+					margin-top: 10px;
+				}
+				#newSize #submitButton {
+					margin-right: 10px;
+					float: left;
+					width: auto;
+					color: #fff;
+					background-color: green;
+					font-size: 9px;
+					letter-spacing: 1px;
+					text-transform: uppercase;
+					cursor: pointer;
+				}
+		#newSize #loading {
+			display: none;
+			float: left;
+			width: 32px;
+			height: 24px;
+			font-size: 12px;
+			background: url(../images/load.gif) no-repeat center center;
+		}
+		#newSize #error {
+			display: none;
+			float: left;
+			width: 32px;
+			line-height: 24px;
+			font-size: 14px;
+			color: #f00;
+			font-weight: bold;
+		}
+
+#panel {	
+	float: left;
+	padding: 20px 25px;
+	width: 100%;
+	min-width: 100%;
+	//height: 100%;
+	min-height: 100%;
+	.boxSize;
+}
+	#panel .framePanel {
+		display: none;
+		float: left;
+		margin: 15px;
+		margin-top: 0;
+	}
+		#panel .framePanel.noShow {
+			display: none;
+		}
+		#panel .framePanel h2 {
+			font-size: 16px;
+			font-weight: bold;
+			padding-bottom: 5px;
+			margin-bottom: 10px;
+			border-bottom: 1px dotted #999;
+		}
+			#panel .framePanel h2 span {
+				font-size: 12px;
+			}
+			#panel iframe {
+				border: 1px solid #333;
+				background-color: #fff;
+				.box-shadow-bold;
+			}
+
+
+#infoPane {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 100;
+	background-color: rgba(0,0,0,0.9);
+	padding: 3%;
+	.boxSize;
+}
+	#iPFrame {
+		margin: 0 auto;
+		display: block;
+		width: 100%;
+		height: 100%;
+		max-width: 700px;
+	}
+		#iPInfo {
+			width: 100%;
+			height: 100%;
+			background: url(../images/texture.jpg) repeat left top;
+			background-size: 250px 250px;
+			border: 1px solid #111;
+			color: #111;
+			border-radius: 5px;
+			padding: 30px;
+			padding-right: 10px;
+			overflow: hidden;
+			position: relative;
+			.box-shadow-bold;
+			.boxSize;
+		}
+			#iPScroll {
+				width: 100%;
+				height: 100%;
+				font-size: 14px;
+				padding-right: 20px;
+				overflow-y: scroll;
+				line-height: 145%;
+				.boxSize;
+			}
+				#iPScroll a {
+					border-bottom: 1px dotted blue;
+					color: blue;
+					text-decoration: none;
+				}
+				#iPScroll h1 {
+					font-size: 22px;
+					font-weight: bold;
+					color: #333;
+					padding-bottom: 10px;
+					margin-bottom: 20px;
+					border-bottom: 1px dotted #666;
+				}				
+				#iPScroll h3 {
+					font-size: 16px;
+					font-weight: bold;
+					color: #333;
+					padding-bottom: 5px;
+					margin-bottom: 15px;
+					margin-top: 30px;
+					border-bottom: 1px dotted #666;
+				}
+				#iPScroll p {
+					margin-bottom: 10px;
+				}
+				#iPScroll ul {
+					width: 100%;
+					padding-left: 20px;
+					.boxSize;
+				}
+					#iPScroll ul li {
+						list-style: disc outside;
+						padding-left: 0;
+						margin-bottom: 10px;
+					}
+				#iPClose {
+					font-family: "fontello";
+					display: block;
+					position: absolute;
+					top: 5px;
+					right: 5px;
+					width: 18px;
+					line-height: 18px;
+					text-align: center;
+					height: 18px;
+					font-size: 14px;
+					background-color: #c00;
+					color: #fff;
+					border-radius: 4px;
+					cursor: pointer;
+					.box-shadow-light;
+				}
+					#iPClose:after {
+						content: '\e805';
+					}
+
+
+// Content page
+
+.pageContent {
+	font-size: 14px;
+	text-align: center;
+	padding: 40px 10px;
+	line-height: 150%;
+	.boxSize;
+}
+	.pageContent a {
+		border-bottom: 1px dotted blue;
+		color: blue;
+		text-decoration: none;
+	}
+
+
