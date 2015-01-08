@@ -1,4 +1,6 @@
-
+// Going through this? The code is kind of messy and I apologise in advance.
+// It's the absolute result of not having a plan before you begin.
+// That said, it should be mostly straightforward. 
 
 var defaulturl = 'http://www.responsivetester.net/go.html';
 
